@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <style type="text/css">
+        p {
+            font-size: 15px;
+        }
+    </style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <article class="article the-font">
+                <div class="row">
+                    <div class="col-md-3">
+                        <br>
+                        <div align="center">
+                            <img src="{{ user.avatar(128) }}"
+                                 style="height:220px;width:220px;border-radius:110px;display:block;
+                                 text-align:center" align="center">
+                        </div>
+                        <br>
+                        <p class="lead text-center">{{ user.nickname }}</p>
+                        <p class="lead text-center">{% if user.id == g.user.id %}<a href="{{ url_for('edituser') }}">点击编辑个人信息</a>{% endif %}</p>
+                        <br>
+                        <p class="palette-paragraph">
+                        <strong>
+                            {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
+                        </strong>
+                        </p>
+                        <hr>
+                        <div style="cursor:pointer" class="btn btn-inverse btn-large btn-block">
+                        {% if user.last_seen %}Last seen on:{{ user.last_seen }}{% endif %}
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>
+{% endblock %}
