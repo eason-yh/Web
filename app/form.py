@@ -8,28 +8,18 @@ from app.models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 
 class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
+    username = StringField('Username', validators=[DataRequired(u"请输入用户名")])
+    password = PasswordField('Password', validators=[DataRequired(u"请输入密码")])
     remember_me = BooleanField('Remember Me')
     submit = SubmitField(u'登陆')
 
-    # def validate_username(self, username):
-    #     user = User.query.filter_by(username=username.data).first()
-    #     if user is None:
-    #         raise ValidationError('无效的用户.')
-    #
-    # def validate_password(self, password):
-    #     user = User.query.filter_by(username=self.username).first()
-    #     password = User.query.filter_by(password_hash=check_password_hash(user.password_hash, password)).first()
-    #     if password is None:
-    #         raise ValidationError('无效的密码.')
 
 class RegistrationForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    nickname = StringField('Nickname', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')])
+    username = StringField('Username', validators=[DataRequired(u"请输入需要注册的用户名")])
+    email = StringField('Email', validators=[DataRequired(u"请输入邮箱地址"), Email(u"请输入正确的邮箱地址")])
+    nickname = StringField('Nickname', validators=[DataRequired(u"请输入需要注册的邮箱")])
+    password = PasswordField('Password', validators=[DataRequired(u"请输入密码")])
+    password2 = PasswordField('Repeat Password', validators=[DataRequired(u"请再一次输入密码"), EqualTo('password')])
     submit = SubmitField(u'注册')
 
     def validate_username(self, username):

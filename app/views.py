@@ -25,27 +25,33 @@ def content():
 @app.before_request
 def before_request():
     g.user = current_user
-    if g.user.is_authenticated:
-        g.user.last_seen = datetime.utcnow()
-        db.session.add(g.user)
-        db.session.commit()
+    # if g.user.is_authenticated:
+    #     g.user.last_seen = datetime.utcnow()
+    #     db.session.add(g.user)
+    #     db.session.commit()
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if g.user is not None and g.user.is_authenticated:
-        return redirect(url_for('index'))
+    # if g.user is not None and g.user.is_authenticated:
+    #     return redirect(url_for('user'))
+    error = None
+    error2 = None
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
-        if user is None or not check_password_hash(user.password_hash,form.password.data):
-            flash('Invalid username or password')
-            return redirect(url_for('index'))
+        if user is None:
+            error = u"无效的用户名"
+            return render_template('login.html', form=form, error=error)
+        elif not check_password_hash(user.password_hash,form.password.data):
+            error2 = u"无效的密码"
+            return render_template('login.html', form=form, error2=error2)
         login_user(user, remember=form.remember_me.data)
-        next_page = request.args.get('next')
-        if not next_page or url_parse(next_page).netloc != '':
-            next_page = url_for('index')
-        return redirect(next_page)
+        # next_page = request.args.get('next')
+        # if not next_page or url_parse(next_page).netloc != '':
+        #     next_page = url_for('index')
+        # return redirect(next_page)
+        return redirect(url_for('index'))
     return render_template('login.html', title=u'登录', form=form)
 
 @app.route('/logout')
@@ -54,9 +60,9 @@ def logout():
     return redirect(url_for('index'))
 
 def after_login(resp):
-    if resp.email is None or resp.email == "":
-        flash('Invalid login. Please try again.')
-        return redirect(url_for('login'))
+    # if resp.email is None or resp.email == "":
+    #     flash('Invalid login. Please try again.')
+    #     return redirect(url_for('login'))
     user = User.query.filter_by(email=resp.email).first()
     if user is None:
         username = resp.username
@@ -89,15 +95,10 @@ def register():
 @app.route('/user/<username>')
 @login_required
 def user(username):
+    # username = g.user.username
     user = User.query.filter_by(username=username).first()
-    if user == None:
-        flash('User ' + username + ' not found.')
-        return redirect(url_for('index'))
-    posts= [
-        {'author': user, 'body': 'Test post #1'},
-        {'author': user, 'body': 'Test post #2'}
-    ]
-    return render_template('user.html', title=u'个人信息', user=user, posts=posts)
+    print(user)
+    return render_template('user.html', title=u'个人信息', user=user)
 
 @app.route('/edituser', methods=['GET', 'POST'])
 @login_required
