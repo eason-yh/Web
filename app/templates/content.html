@@ -1,46 +1,31 @@
 {% extends "base.html" %}
-{% block content %}
-{#<div class="container">#}
-{#    <div class="projects-header page-header">#}
-{#        <h2>{{user.nickname}}的内容</h2>#}
-{#    </div>#}
-{#    <div class="row"></div>#}
-{##}
-{#    <div class="col-sm-6 col-md-4 col-lg-3">#}
-{#        {% for content in AllContent %}#}
-{#            <div class="thumbnail" style="height: auto;width: 360px">#}
-{#                文章创建时间：{{ content.timestamp }}#}
-{#                <div class="caption">#}
-{#                    文章内容：{{ content.body }}#}
-{#                </div>#}
-{#            </div>#}
-{#        {% endfor %}#}
-{#    </div>#}
-{#</div>#}
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-9">
-            {% for content in AllContent %}
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
                 <article class="article the-font" style="box-shadow: rgb(167, 163, 163) 5px 5px 20px;">
+                    <div>
+                        <h4>{{ Content.title }}</h4>
+                    </div>
                     <a href="">
-                        <p style="color:#34495E">{{ content.body }}</p>
+                        <p style="color:#34495E">{{ Content.content }}</p>
                     </a>
                     <p>
                         <small>
                             <span class="glyphicon glyphicon-calendar" aria-hidden="true">
                             </span>
                             <span style="color:#8C8C8C;">
-                                <span class="flask-moment" data-timestamp="{{ content.timestamp }}"
-                                      data-format="format('LLL')" data-refresh="0">文章创建时间：{{ content.timestamp }}
+                                <span class="flask-moment" data-timestamp="{{ Content.timestamp }}"
+                                      data-format="format('LLL')" data-refresh="0">文章创建时间：{{ Content.timestamp }}
                                 </span>
                             </span>
                         </small>
                     </p>
                 </article>
-            {% endfor %}
+            </div>
         </div>
     </div>
-</div>
 
 {% endblock %}

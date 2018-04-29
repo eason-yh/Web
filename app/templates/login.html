@@ -1,28 +1,30 @@
 {% extends "base.html" %}
 
 {% block content %}
+
     <div class="container">
         <form class="form-horizontal" action="{{ 'login' }}" method="post" name="login">
             {{ form.hidden_tag() }}
-
             <div class="form-group">
+                <span style="color: red">{{ error }}</span>
                 <label class="col-sm-4 control-label">用户名</label>
                 <div class="col-sm-3">
                 {{ form.username(size=32,class="form-control", placeholder="请输入用户名") }}
                 </div>
-                {% for error in form.username.errors %}
-                <span style="color: red">{{ error }}</span>
-                {% endfor %}<br>
+                {% for form_error in form.username.errors %}
+                <span style="color: red">{{ form_error }}</span>
+                {% endfor %}
             </div>
 
             <div class="form-group">
+                <span style="color: red">{{ error2 }}</span>
                 <label class="col-sm-4 control-label">密码</label>
                 <div class="col-sm-3">
                     {{ form.password( class="form-control", placeholder="请输入密码") }}
                 </div>
-                {% for error in form.password.errors %}
-                <span style="color: red">{{ error }}</span>
-                {% endfor %}<br>
+                {% for form_error in form.password.errors %}
+                <span style="color: red">{{ form_error }}</span>
+                {% endfor %}
             </div>
 
             <div class="col-sm-offset-4 col-sm-5">
@@ -32,7 +34,7 @@
 
             <div class="col-sm-offset-4 col-sm-5">
                 {{ form.submit() }}
-                <button class="col-sm-offset-4" type="submit"><a href="{{ url_for('register') }}" style="color: black; text-decoration: none;">注册</a></button>
+                <button class="col-sm-offset-4" type="submit"><a href="{{ url_for('register') }}" style="   color: black; text-decoration: none;">注册</a></button>
             </div>
         </form>
     </div>

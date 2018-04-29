@@ -5,17 +5,19 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9">
-            <div class="panel-default">
-                <div class="panel-heading">请在下方输入框内编辑你的内容</div>
-                    <div class="panel-body" style="background: white">
-                        <form action="" method="post" name="editcontent">
-                            {{ form.hidden_tag() }}
-                            <div class="form-group">
-                                {{ form.body(row=5, class="form-control", placeholder="请在输入框内输入内容",
-                                style="margin-top: 0px; margin-bottom: 0px; height: 136px;")}}
-                            </div>
-                            <button type="submit" class="btn btn-default" style="background: white; color: black;  ">提交</button>
-                        </form>
+                <div class="panel-default">
+                    <div class="panel-heading">请在下方输入框内编辑你的内容和标题</div>
+                        <div class="panel-body" style="background: white">
+                            <form action="" method="post" name="editcontent">
+                                {{ form.hidden_tag() }}
+                                <div class="form-group">
+                                    {{ form.title(class="form-control", placeholder="请在此输入标题") }}
+                                    {{ form.content(row=5, class="form-control", placeholder="请在此输入内容",
+                                    style="margin-top: 0px; margin-bottom: 0px; height: 136px;")}}
+                                </div>
+                                <button type="submit" class="btn btn-default" style="background: white; color: black;  ">提交</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
