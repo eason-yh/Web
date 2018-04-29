@@ -197,3 +197,395 @@
 2018-04-24 20:27:54,444 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
 2018-04-24 21:06:29,628 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
 2018-04-24 21:45:49,970 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-26 16:15:19,973 INFO: microblog startup [in app\__init__.py:36]
+2018-04-26 16:31:26,332 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-26 16:31:34,319 INFO: microblog startup [in app\__init__.py:36]
+2018-04-26 18:10:42,022 INFO: microblog startup [in app\__init__.py:36]
+2018-04-26 19:32:13,062 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-26 19:32:13,398 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-26 20:34:05,993 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-26 20:34:06,329 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 10:27:52,680 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 10:27:53,063 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 10:30:56,431 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 10:37:03,289 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 10:40:59,273 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 10:42:51,298 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 10:42:53,730 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 10:42:54,095 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 10:43:31,637 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 10:43:32,000 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 10:45:05,219 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 10:45:05,579 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 10:45:42,171 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 10:47:07,691 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 10:47:51,946 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 10:48:06,997 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 10:48:07,375 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 10:48:13,644 ERROR: Exception on /content [GET] [in C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\admin\PycharmProjects\name\app\views.py", line 22, in content
+    AllContent = User.query.filter_by(username=user.username).first().posts.all()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2737, in all
+    return list(self)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\orm\dynamic.py", line 247, in __iter__
+    return iter(self._clone(sess))
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2889, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2912, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1200, in _execute_context
+    context)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+OperationalError: (sqlite3.OperationalError) no such column: post.content [SQL: u'SELECT post.id AS post_id, post.content AS post_content, post.timestamp AS post_timestamp, post.user_id AS post_user_id, post.title AS post_title \nFROM post \nWHERE ? = post.user_id'] [parameters: (1,)] (Background on this error at: http://sqlalche.me/e/e3q8)
+2018-04-28 10:48:28,936 ERROR: Exception on /content [GET] [in C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\admin\PycharmProjects\name\app\views.py", line 22, in content
+    AllContent = User.query.filter_by(username=user.username).first().posts.all()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2737, in all
+    return list(self)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\orm\dynamic.py", line 247, in __iter__
+    return iter(self._clone(sess))
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2889, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2912, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1200, in _execute_context
+    context)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+OperationalError: (sqlite3.OperationalError) no such column: post.content [SQL: u'SELECT post.id AS post_id, post.content AS post_content, post.timestamp AS post_timestamp, post.user_id AS post_user_id, post.title AS post_title \nFROM post \nWHERE ? = post.user_id'] [parameters: (1,)] (Background on this error at: http://sqlalche.me/e/e3q8)
+2018-04-28 10:48:40,137 ERROR: Exception on /content [GET] [in C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\admin\PycharmProjects\name\app\views.py", line 22, in content
+    AllContent = User.query.filter_by(username=user.username).first().posts.all()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2737, in all
+    return list(self)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\orm\dynamic.py", line 247, in __iter__
+    return iter(self._clone(sess))
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2889, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2912, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1200, in _execute_context
+    context)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+OperationalError: (sqlite3.OperationalError) no such column: post.content [SQL: u'SELECT post.id AS post_id, post.content AS post_content, post.timestamp AS post_timestamp, post.user_id AS post_user_id, post.title AS post_title \nFROM post \nWHERE ? = post.user_id'] [parameters: (1,)] (Background on this error at: http://sqlalche.me/e/e3q8)
+2018-04-28 10:49:16,026 ERROR: Exception on /user/eason [GET] [in C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\admin\PycharmProjects\name\app\views.py", line 106, in user
+    print(user)
+IOError: [Errno 22] Invalid argument
+2018-04-28 10:49:18,049 ERROR: Exception on /user/eason [GET] [in C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\admin\PycharmProjects\name\app\views.py", line 106, in user
+    print(user)
+IOError: [Errno 22] Invalid argument
+2018-04-28 10:49:18,897 ERROR: Exception on /user/eason [GET] [in C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\admin\PycharmProjects\name\app\views.py", line 106, in user
+    print(user)
+IOError: [Errno 22] Invalid argument
+2018-04-28 10:49:20,443 ERROR: Exception on /user/eason [GET] [in C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\admin\PycharmProjects\name\app\views.py", line 106, in user
+    print(user)
+IOError: [Errno 22] Invalid argument
+2018-04-28 10:49:22,224 ERROR: Exception on /user/eason [GET] [in C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\admin\PycharmProjects\name\app\views.py", line 106, in user
+    print(user)
+IOError: [Errno 22] Invalid argument
+2018-04-28 10:49:22,726 ERROR: Exception on /content [GET] [in C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\admin\PycharmProjects\name\app\views.py", line 22, in content
+    AllContent = User.query.filter_by(username=user.username).first().posts.all()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2737, in all
+    return list(self)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\orm\dynamic.py", line 247, in __iter__
+    return iter(self._clone(sess))
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2889, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2912, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1200, in _execute_context
+    context)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+OperationalError: (sqlite3.OperationalError) no such column: post.content [SQL: u'SELECT post.id AS post_id, post.content AS post_content, post.timestamp AS post_timestamp, post.user_id AS post_user_id, post.title AS post_title \nFROM post \nWHERE ? = post.user_id'] [parameters: (1,)] (Background on this error at: http://sqlalche.me/e/e3q8)
+2018-04-28 10:49:24,184 ERROR: Exception on /user/eason [GET] [in C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\admin\PycharmProjects\name\app\views.py", line 106, in user
+    print(user)
+IOError: [Errno 22] Invalid argument
+2018-04-28 10:49:52,848 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 10:49:53,194 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 10:50:03,242 ERROR: Exception on /user/eason [GET] [in C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\admin\PycharmProjects\name\app\views.py", line 106, in user
+    print(user)
+IOError: [Errno 22] Invalid argument
+2018-04-28 10:50:03,276 ERROR: Exception on /content [GET] [in C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\admin\PycharmProjects\name\app\views.py", line 22, in content
+    AllContent = User.query.filter_by(username=user.username).first().posts.all()
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2737, in all
+    return list(self)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\orm\dynamic.py", line 247, in __iter__
+    return iter(self._clone(sess))
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2889, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2912, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1200, in _execute_context
+    context)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\admin\PycharmProjects\name\venv\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+OperationalError: (sqlite3.OperationalError) no such column: post.content [SQL: u'SELECT post.id AS post_id, post.content AS post_content, post.timestamp AS post_timestamp, post.user_id AS post_user_id, post.title AS post_title \nFROM post \nWHERE ? = post.user_id'] [parameters: (1,)] (Background on this error at: http://sqlalche.me/e/e3q8)
+2018-04-28 10:51:39,519 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 10:51:52,961 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 10:52:56,522 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 10:52:58,994 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 10:52:59,358 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 11:01:57,009 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 11:04:46,316 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 11:07:48,812 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 11:54:31,440 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 11:55:56,167 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 11:56:59,240 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 11:59:17,502 INFO: microblog startup [in app\__init__.py:36]
+2018-04-28 12:03:53,869 INFO: microblog startup [in app\__init__.py:36]
+2018-04-28 21:19:04,069 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 21:19:04,427 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 21:19:34,894 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 21:48:18,003 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 21:48:38,134 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 21:48:38,516 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 21:50:10,489 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 21:50:28,279 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 21:52:56,427 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 21:53:18,644 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 21:55:55,687 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 21:55:59,423 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 21:56:33,240 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 21:59:10,290 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-28 22:02:27,483 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-29 15:23:18,845 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-29 18:57:32,401 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-29 19:36:05,094 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-29 19:43:38,038 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-29 20:19:14,532 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-29 20:23:23,911 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-29 20:24:23,973 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-29 20:25:07,878 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-29 20:26:00,200 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-29 20:31:02,973 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-29 20:31:35,029 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-29 20:32:15,173 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]
+2018-04-29 20:32:15,523 INFO: microblog startup [in C:\Users\admin\PycharmProjects\name\app\__init__.py:36]

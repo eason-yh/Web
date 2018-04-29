@@ -4,7 +4,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, BooleanField, PasswordField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo, Length
-from app.models import User
+from app.models import User, Post
 from werkzeug.security import generate_password_hash, check_password_hash
 
 class LoginForm(FlaskForm):
@@ -57,4 +57,11 @@ class EditForm(FlaskForm):
         return True
 
 class EditContent(FlaskForm):
-    body = TextAreaField('body', validators=[DataRequired()])
+    title = StringField('title',validators=[DataRequired(u'请填写文章标题')])
+    content = TextAreaField('content', validators=[DataRequired(u'请填写内容')])
+    def validate(self):
+        title = Post.query.filter_by(title=self.title.data).first()
+        if title != None:
+            self.title.errors.append(u'标题已经存在，请重新填写')
+            return False
+        return True

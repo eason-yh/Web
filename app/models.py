@@ -26,7 +26,7 @@ class User(db.Model, UserMixin):
     followed = db.relationship('User',
                                secondary=followers,
                                primaryjoin=(followers.c.follower_id == id),
-                               secondaryjoin=(followers.c.follower_id == id),
+                               secondaryjoin=(followers.c.followed_id == id),
                                backref=db.backref('followers', lazy='dynamic'),
                                lazy='dynamic')
 
@@ -37,14 +37,14 @@ class User(db.Model, UserMixin):
     def follow(self, user):
         if not self.is_following(user):
             self.followed.append(user)
-            return self
+            # return self
 
     def unfollow(self, user):
         if self.is_following(user):
             self.followed.remove(user)
-            return self
+            # return self
 
-    def is_following(self,user):
+    def is_following(self, user):
         return self.followed.filter_by(followers.c.followed_id == user.id).count() > 0
 
     def followed_posts(self):
@@ -62,14 +62,16 @@ class User(db.Model, UserMixin):
             return str(self.id)
 
     def __repr__(self):
-        return '<User %r' %(self.username)
+        return '<User %r' % (self.username)
 
 class Post(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
-    body = db.Column(db.String(140))
+    content = db.Column(db.String(140), unique=True)
     timestamp = db.Column(db.DateTime)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    title = db.Column(db.String(64), unique=True)
+    num = db.Column(db.String(64),unique=True)
 
     def __repr__(self):
-        return '<Post %r>' % (self.body)
+        return '<Post %r>' % (self.title)
 

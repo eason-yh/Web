@@ -19,7 +19,16 @@
                         </div>
                         <br>
                         <p class="lead text-center">{{ user.nickname }}</p>
-                        <p class="lead text-center">{% if user.id == g.user.id %}<a href="{{ url_for('edituser') }}">点击编辑个人信息</a>{% endif %}</p>
+                        <p class="lead text-center">{{user.followers.count()}}个人关注了你</p>
+                        <p class="lead text-center">
+                            {% if user.id == g.user.id %}
+                                <a href="{{ url_for('edituser') }}">点击编辑个人信息</a>
+                            {% elif not g.user.is_following(user) %}
+                                <a href="{{url_for('follow', nickname = user.nickname)}}">关注</a>
+                            {% else %}
+                                <a href="{{url_for('unfollow', nickname = user.nickname)}}">取消关注</a>
+                            {% endif %}
+                        </p>
                         <br>
                         <p class="palette-paragraph">
                         <strong>
@@ -30,6 +39,7 @@
                         <div style="cursor:pointer" class="btn btn-inverse btn-large btn-block">
                         {% if user.last_seen %}Last seen on:{{ user.last_seen }}{% endif %}
                         </div>
+
                     </div>
                 </div>
             </article>
