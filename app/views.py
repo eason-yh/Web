@@ -5,7 +5,7 @@ from app import app, db, lm
 from flask import render_template, flash, redirect, session, url_for, request, g
 from flask_login import login_user, logout_user, current_user, login_required
 from .form import LoginForm, RegistrationForm, EditForm, EditContent
-from .models import User, Post
+from .models import User, Post, followers
 from werkzeug.urls import url_parse
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
@@ -19,7 +19,8 @@ from datetime import datetime
 @app.route('/index')
 def index():
     qucontent = Post.query.order_by(db.desc(Post.timestamp))
-    return render_template('index.html', title=u'首页',qucontent=qucontent)
+    post=Post
+    return render_template('index.html', title=u'首页',qucontent=qucontent,post=post)
 
 @app.route('/Article_List')
 @login_required
@@ -100,7 +101,7 @@ def register():
         user = User(username=form.username.data, email=form.email.data, password_hash=generate_password_hash(form.password.data),nickname=form.nickname.data)
         db.session.add(user)
         db.session.commit()
-        flash('Congratulations, you are now a registered user!')
+        flash(u'恭喜你，账号注册成功','success')
         return redirect(url_for('login'))
     return render_template('register.html', title=u'注册', form=form)
 
@@ -116,23 +117,24 @@ def user(username):
 @app.route('/edituser', methods=['GET', 'POST'])
 @login_required
 def edituser():
+    user = current_user
     form = EditForm(g.user.nickname)
     if form.validate_on_submit():
         g.user.nickname = form.nickname.data
         g.user.about_me = form.about_me.data
         db.session.add(g.user)
         db.session.commit()
-        flash('Your change have been saved.')
-        return redirect(url_for('edituser'))
+        flash(u'你的更改已经保存','success')
+        return redirect(url_for('user',username=user.username))
     else:
         form.nickname.data = g.user.nickname
         form.about_me.data = g.user.about_me
     return render_template('edituser.html', form=form)
 
 
-@app.route('/editcontent/', methods=['GET', 'POST'])
+@app.route('/addcontent/', methods=['GET', 'POST'])
 @login_required
-def editcontent():
+def addcontent():
     username = g.user.username
     user = User.query.filter_by(username=username).first()
     form = EditContent()
@@ -146,7 +148,7 @@ def editcontent():
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('Article_List'))
-    return render_template('editcontent.html', title=u'编辑内容', form=form, user=user)
+    return render_template('addcontent.html', title=u'编辑内容', form=form, user=user)
 
 @app.route('/content/<num>')
 # @login_required
@@ -154,45 +156,30 @@ def content(num):
     content = Post.query.filter_by(num=num).first()
     return render_template('content.html', Content=content)
 
-
-@app.route('/follpw/<nickname>')
+@app.route('/editcontent/<num>',methods=['GET', "POST"])
 @login_required
-def follow(nickname):
-    user = User.query.filter_by(nickname=nickname).first()
-    if user is None:
-        flash(u'用户  %s 没有找到' % nickname)
-        return redirect(url_for('index'))
-    if user == g.user:
-        flash(u"不能关注自己")
-        return redirect(url_for('user', nickname=nickname))
-    u = g.user.follow(user)
-    if u is None:
-        flash(u"不能关注 %s" % nickname)
-        return redirect(url_for('user', nickname=nickname))
-    db.session.add(u)
-    db.session.commit()
-    flash("成功关注了 %s" % nickname)
-    return redirect(url_for('user', nickname=nickname))
+def editcontent(num):
+    if num:
+        content = Post.query.filter_by(num=num).first()
+        return render_template('addcontent.html', content=content)
 
-
-@app.route('/unfollow/<nickname>')
+@app.route('/delcontent/<num>')
 @login_required
-def unfollow(nickname):
-    user = User.query.filter_by(nickname=nickname).first()
-    if user is None:
-        flash(u'用户  %s 没有找到' % nickname)
-        return redirect(url_for('index'))
-    if user == g.user:
-        flash(u"不能不关注自己")
-        return redirect(url_for('user', nickname=nickname))
-    u = g.user.unfollow(user)
-    if u is None:
-        flash(u"不能不关注 %s" % nickname)
-        return redirect(url_for('user', nickname=nickname))
-    db.session.add(u)
-    db.session.commit()
-    flash("取消关注 %s 成功" % nickname)
-    return redirect(url_for('user', nickname=nickname))
+def delcontent(num):
+    if num:
+        content = Post.query.filter_by(num=num).first()
+        db.session.delete(content)
+        db.session.commit()
+        flash(u"删除成功",'success')
+        return redirect('Article_List')
+    else:
+        flash(u"此文章不存在或已经被删除",'info')
+        return redirect('Article_List')
+
+@app.route('/Collection/<username>')
+@login_required
+def Collection(username):
+    user = User.query.filter_by(username=username).first()
 
 
 @lm.user_loader

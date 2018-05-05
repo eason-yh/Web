@@ -15,6 +15,7 @@
             <div class="navbar-collapse collapse" style="background: black">
                 <ul class="nav navbar-nav">
                     {% if g.user.is_authenticated %}
+                        <li><a href="{{ url_for('index') }}">首页</a></li>
                         <li><a href="{{ url_for('Article_List') }}">文章</a></li>
                         <li><a href="{{ url_for('user', username = g.user.username) }}">个人信息</a></li>
                         <li><a href="{{ url_for('logout') }}">登出</a></li>
@@ -27,15 +28,12 @@
                 </ul>
             </div>
             <hr>
-            {% with messages = get_flashed_messages() %}
-            {% if messages %}
-            <ul>
-                {% for message in messages %}
-                <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-            {% endwith %}
+            {% for message in  get_flashed_messages(with_categories=True) %}
+                <div class="alert alert-{{ message[0] }}">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ message[1] }}
+                </div>
+            {% endfor %}
         </div>
         {% block content %}{% endblock %}
         <br/>

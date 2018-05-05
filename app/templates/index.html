@@ -25,6 +25,14 @@
                                 </span>
                             </span>
                         </small>
+                        <button style="margin-left: 350px">
+                            <small>
+                                <span class="glyphicon glyphicon-heart" aria-hidden="true">
+                                </span>
+                                <span style="color:#8C8C8C;">收藏&nbsp&nbsp
+                                    {{ post.query.filter_by(num=contents.num).first().users.count() }}</span>
+                            </small>
+                        </button>
                     </p>
                 </article>
             {% endfor %}

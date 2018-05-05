@@ -9,7 +9,7 @@ from hashlib import md5
 
 followers = db.Table('followers',
     db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
-    db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
+    db.Column('followed_id', db.String(64), db.ForeignKey('post.num'))
 )
 
 
@@ -23,32 +23,15 @@ class User(db.Model, UserMixin):
     about_me = db.Column(db.String(140))
     last_seen = db.Column(db.DateTime)
 
-    followed = db.relationship('User',
+    followed = db.relationship('Post',
                                secondary=followers,
-                               primaryjoin=(followers.c.follower_id == id),
-                               secondaryjoin=(followers.c.followed_id == id),
-                               backref=db.backref('followers', lazy='dynamic'),
+                               backref=db.backref('users', lazy='dynamic'),
                                lazy='dynamic')
 
     dis_authenticated = True
     is_active = True
     is_anonymous = False
 
-    def follow(self, user):
-        if not self.is_following(user):
-            self.followed.append(user)
-            # return self
-
-    def unfollow(self, user):
-        if self.is_following(user):
-            self.followed.remove(user)
-            # return self
-
-    def is_following(self, user):
-        return self.followed.filter_by(followers.c.followed_id == user.id).count() > 0
-
-    def followed_posts(self):
-        return Post.query.join(followers, (followers.c.followed_id == Post.user_id)).filter(followers.c.follower_id == self.id).order_by(Post.timestamp.desc())
 
     def avatar(self, size):
         # return 'http://www.gravatar.com/avatar/' + md5(self.email).hexdigest() + '?d=mm&s=' + str(size)
@@ -74,4 +57,8 @@ class Post(db.Model, UserMixin):
 
     def __repr__(self):
         return '<Post %r>' % (self.title)
+
+
+
+
 

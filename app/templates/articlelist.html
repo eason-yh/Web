@@ -4,7 +4,7 @@
     <div class="portlet-body">
         <div class="clearfix">
             <div class="btn-group">
-                <button class="btn green"><a href="{{ url_for('editcontent') }}">添加新内容</a></button>
+                <a href="{{ url_for('addcontent') }}"><button>添加新内容</button></a>
             </div>
         </div>
         <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
@@ -23,8 +23,8 @@
                         <td>{{ content.title }}</td>
                         <td>{{ content.content }}</td>
                         <td>{{ content.author.nickname }}</td>
-                        <td>编辑 </td>
-                        <td>删除 </td>
+                        <td><button href="{{ url_for('addcontent') }}">编辑</button></td>
+                        <td><a href="{{ url_for('delcontent',num=content.num)}}"><button>删除</button></a></td>
                     </tr>
                 {% endfor %}
             </tbody>
