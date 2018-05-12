@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <article class="article the-font" style="box-shadow: rgb(167, 163, 163) 5px 5px 20px;">
+                    <div>
+                        <h4>{{ Content.title }}</h4>
+                    </div>
+                    <a href="">
+                        <p style="color:#34495E">{{ Content.content }}</p>
+                    </a>
+                    <p>
+                        <small>
+                            <span class="glyphicon glyphicon-calendar" aria-hidden="true">
+                            </span>
+                            <span style="color:#8C8C8C;">
+                                <span>{{ moment(Content.timestamp).format('YYYY年M月D日, h:mm:ss a') }}</span>
+                            </span>
+                        </small>
+                    </p>
+                </article>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
