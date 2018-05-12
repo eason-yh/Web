@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+
 {% block content %}
 
 <div class="container">
@@ -20,17 +21,19 @@
                             <span class="glyphicon glyphicon-calendar" aria-hidden="true">
                             </span>
                             <span style="color:#8C8C8C;">
-                                <span class="flask-moment" data-timestamp="{{ contents.timestamp }}"
-                                      data-format="format('LLL')" data-refresh="0">文章创建时间：{{ contents.timestamp }}
-                                </span>
+{#                                <span class="flask-moment" data-timestamp="{{ contents.timestamp }}" data-format="format('LLLL')"
+data-refresh="0">文章创建时间：{{ contents.timestamp }}#}
+{#                                </span>#}
+{#                                {{ contents.timestamp }}#}
+                                <span>{{ moment(contents.timestamp).format('YYYY年M月D日, h:mm:ss a') }}</span>
                             </span>
                         </small>
                         <button style="margin-left: 350px">
                             <small>
                                 <span class="glyphicon glyphicon-heart" aria-hidden="true">
                                 </span>
-                                <span style="color:#8C8C8C;">收藏&nbsp&nbsp
-                                    {{ post.query.filter_by(num=contents.num).first().users.count() }}</span>
+                                <span style="color:#8C8C8C;"><a href="{{ url_for('Collection',num=contents.num) }}">收藏</a>&nbsp;&nbsp;
+                                    {{ blog.query.filter_by(num=contents.num).first().users.count() }}</span>
                             </small>
                         </button>
                     </p>

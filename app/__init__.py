@@ -1,16 +1,18 @@
 #!/usr/bin/env python
 #_*_ coding:utf-8 _*_
 from flask import Flask
+from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
 
 app=Flask(__name__)
 app.config.from_object('config')
 db = SQLAlchemy(app)
 
+moment = Moment(app)
 import os
 from flask_login import LoginManager
 # from flask_openid import OpenID
-# from flask.ext.openid import OpenID
+
 from config import basedir
 #用户认证
 lm = LoginManager()

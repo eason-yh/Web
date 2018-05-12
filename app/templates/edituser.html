@@ -14,7 +14,7 @@
 
                                     {{ form.nickname(size=24,class="form-control") }}
                                     {% for error in form.errors.nickname %}
-                                    <br><span style="color: red">[{{ error }}]</span>
+                                    <br><span style="color: red">{{ error }}</span>
                                     {% endfor %}
                                         {{ form.about_me(cols=32, row=4,class="form-control",
                                             style="margin-top: 0px; margin-bottom: 0px; height: 136px;") }}
